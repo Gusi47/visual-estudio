@@ -1,0 +1,50 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+
+.main {
+  width: 100%;
+  height: 100vh;
+  cursor: pointer;
+ @include m.flex(flex, column,center, center);
+ gap: 1rem;
+
+  &__logoi1 {
+   
+    width: clamp(20rem, 28vw, 35rem);
+    animation-name: hi;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in;
+    
+  @keyframes hi {
+    from {
+      transform: translatex(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translatex(0%);
+      opacity: 1;
+    }
+  }
+}
+
+&__logoi2 {
+   
+  width: clamp(15rem, 18vw, 25rem);
+  animation-name: hi2;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+
+ 
+@keyframes hi2 {
+  from {
+    transform: translatex(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translatex(0%);
+    opacity: 1;
+  }
+}
+}
+ }

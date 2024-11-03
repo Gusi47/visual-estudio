@@ -1,0 +1,118 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.servicios {
+  background-color: v.$crema;
+  @include m.bgImage("/fondo-2.png");
+  width: 100%;
+  height: 100vh;
+
+  @include m.flex(flex, column, space-between, flex-start);
+
+  &__h3s {
+    font-size: clamp(3rem, 6vw, 8rem);
+    color: v.$verde;
+    font-weight: 900;
+    margin-left: 1rem;
+  }
+}
+
+.contenido {
+  width: 100%;
+  @include m.grid(1, 1fr);
+  margin: 0 auto;
+
+  @include m.tablet {
+    width: 80%;
+    @include m.grid(3, 1fr);
+    margin-left: 1.5rem;
+    gap: 2rem;
+  }
+
+  &__textoc1,
+  &__textoc2,
+  &__textoc3,
+  &__textoc4,
+  &__textoc5,
+  &__textoc6 {
+    cursor: none;
+    width: 90%;
+    height: 100%;
+    background-color: v.$naranja;
+    border-radius: 0;
+    margin: 0 auto;
+    @include m.flex(flex, column, space-around, center);
+    box-shadow: 5px 3px 5px -1px rgba(0, 0, 0, 0.26);
+
+    @include m.tablet {
+      height: 25rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+  }
+
+  @include m.tablet {
+    &__textoc1,
+    &__textoc4 {
+      grid-column: 1/2;
+      grid-row: 1/2;
+    }
+
+    &__textoc1 {
+      z-index: 9;
+      transition: 500ms ease;
+
+      &:hover {
+        transform: translateY(-230px);
+      }
+    }
+
+    &__textoc2,
+    &__textoc5 {
+      grid-column: 2/3;
+      grid-row: 1/2;
+    }
+
+    &__textoc2 {
+      z-index: 9;
+      transition: 500ms ease;
+
+      &:hover {
+        transform: translateY(-230px);
+      }
+    }
+
+    &__textoc3,
+    &__textoc6 {
+      grid-column: 3/4;
+      grid-row: 1/2;
+    }
+
+    &__textoc3 {
+      z-index: 9;
+      transition: 500ms ease;
+
+      &:hover {
+        transform: translateY(-230px);
+      }
+    }
+  }
+
+  &__h2c1,
+  &__h2c2,
+  &__h2c3 {
+    font-size: clamp(2.5rem, 2.6vw, 2.8rem);
+    padding: 2rem;
+    color: v.$verde;
+    font-weight: 900;
+  }
+
+  &__parrafoc1,
+  &__parrafoc2,
+  &__parrafoc3 {
+    font-size: 1.8rem;
+    padding: 2rem;
+    color: v.$phantomdark;
+    font-weight: 100;
+  }
+}

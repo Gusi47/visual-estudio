@@ -1,0 +1,16 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.conteflecha {
+
+
+  &__flecha {
+    color: v.$naranja;
+    padding: 1rem;
+    font-size: 5rem;
+    position: absolute;
+    bottom: 5rem;
+    right: 2rem;
+  }
+}
+

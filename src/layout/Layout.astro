@@ -1,0 +1,60 @@
+---
+import { ViewTransitions, slide } from "astro:transitions";
+import "../scss/base/_globales.scss";
+import "../scss/base/_variables.scss";
+import "../scss/featurs/_esquina.scss";
+import "../scss/featurs/_flecha.scss";
+import "../scss/featurs/_slide.scss";
+import "../scss/home/_header.scss";
+import "../scss/page2/_contacto.scss";
+import "../scss/page2/_headerp2.scss";
+import "../scss/page2/_metodologia.scss";
+import "../scss/page2/_portafolio.scss";
+import "../scss/page2/_servicios.scss";
+
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en" transition:animate={slide({ duration: "2s" })}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Diseño de paginas web, fotografia profesional"
+    />
+    <!--     <link
+      rel="canocical"
+      href="https://patagoniagastrobar.com/la-url-canonica"
+    /> -->
+    <link rel="icon" href="/logo-favi.png" />
+    <link rel="apple-touch-icon" href="/logo-favi.png" />
+    <meta name="theme-color" content=" #eb5b30" />
+    <meta property="og:title" content="VisualEstudio" />
+    <!-- <meta property="og:image" content="https://patagoniagastrobar.com/build/img/LOGO COMPLETO SIN PALMERAS.jpg">
+    <meta property="og:url" content="https://patagoniagastrobar.com/index.html"> -->
+    <meta name:'description' content={description} />
+    <meta name="twwiter:card" content="summary" />
+    <meta name="generator" content={Astro.generator} />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    
+
+    <title>VisualEstudio | {title}</title>
+    <ViewTransitions />
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>

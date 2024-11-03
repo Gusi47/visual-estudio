@@ -1,0 +1,114 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.menu {
+  &__nav {
+    position: absolute;
+    width: 100%;
+    --state-close: scale(0);
+    --state-hamburguer: scale(1);
+    --state-menu: translate(-100%);
+
+    padding:0 3rem;
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: repeat(2, max-content);
+
+    &:target {
+      --state-menu: translate(0);
+      --state-close: scale(1);
+      --state-hamburguer: scale(0);
+    }
+
+    @include m.tablet {
+      --state-hamburguer: scale(0);
+      --state-menu: translate(0);
+
+      &:target {
+        --state-close: scale(1);
+      }
+    }
+  }
+
+  &__logoh {
+    width: 15rem;
+  }
+
+  &__hamburguer,
+  &__close {
+    z-index: 85;
+    cursor: pointer;
+    grid-column: -2/-1;
+    grid-row: 1/2;
+    transition: 0.4s transform;
+  }
+
+  &__hamburguer {
+    transform: var(--state-hamburguer);
+  }
+
+  &__close {
+    transform: var(--state-close);
+  }
+
+  &__icon {
+    width: 4rem;
+  }
+
+  &__links {
+    font-weight: 700;
+    height: 100vh;
+    z-index: 80;
+    backdrop-filter: blur(7px);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    display: grid;
+    align-content: center;
+  
+    transform: var(--state-menu);
+    transition: 0.3s transform;
+
+    @include m.tablet {
+      height: 7vh;
+      background-color: unset;
+      position: unset;
+      grid-auto-flow: column;
+      transform: unset;
+      grid-column: -2/-1;
+      grid-row: 1/2;
+      backdrop-filter: unset;
+    }
+  }
+
+  &__item {
+    list-style: none;
+  
+  }
+
+  &__link {
+    color: v.$naranja;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 2rem;
+    
+    text-transform: uppercase;
+    transition: 300ms;
+    margin-right: 2rem;
+    @include m.tablet {
+      font-size: 1.3rem;
+      margin-left: 1rem;
+      letter-spacing: none;
+
+      &:hover {
+        border-bottom: 1px solid v.$rojo;
+        border-radius: 0.5rem;
+        color: v.$rojo;
+      }
+    }
+  }
+}

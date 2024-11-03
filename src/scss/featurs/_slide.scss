@@ -1,0 +1,18 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.conte {
+    width: 100%;
+}
+
+.slide {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+
+    &__secciones {
+        scroll-snap-align: center;
+    }
+} 

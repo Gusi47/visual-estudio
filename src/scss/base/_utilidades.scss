@@ -1,0 +1,19 @@
+@use "../base/variables" as v;
+
+
+
+.fade {
+  animation: fade 2s ease-in normal;
+}
+
+@keyframes fade {
+  from {
+      transform: translatex(-100%);
+      opacity: 0;
+  }
+
+  to {
+    transform: translatex(0%);
+      opacity: 1;
+  }
+}

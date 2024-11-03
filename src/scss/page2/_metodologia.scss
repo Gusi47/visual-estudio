@@ -1,0 +1,58 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.metodologia {
+
+  @include m.bgImage("/fondo-6.png");
+  background-color: v.$crema;
+  width: 100%;
+  height: 100vh;
+
+  @include m.flex(flex, column, space-between, flex-start);
+
+  &__parra1le {
+    font-size: clamp(3rem, 6vw, 8rem);
+    color: v.$verde;
+    font-weight: 900;
+    margin-left: 1rem;
+  }
+}
+
+.contain {
+  @include m.grid(2, 1fr);
+
+  @include m.tablet {
+    @include m.grid(4, 1fr);
+  }
+}
+
+.article {
+  @include m.flex(flex, column, flex-start, center);
+  padding: 2rem;
+
+  &__spana {
+    margin-bottom: 2rem;
+    color: v.$naranja;
+    font-size: 3rem;
+    font-weight: 900;
+  }
+
+  &__parrafoa {
+    color: v.$verde;
+    font-size: clamp(1.3rem, 1.5vw, 1.7rem);
+    font-weight: 200;
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid v.$verde;
+  }
+}
+
+.text {
+  width: 100%;
+  &__h2m {
+    font-size: clamp(2rem, 3vw, 4rem);
+    color: v.$verde;
+    font-weight: 200;
+    text-align: center;
+  }
+}

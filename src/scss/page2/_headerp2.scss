@@ -1,0 +1,98 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+
+.page2 {
+  width: 100%;
+  height: 100vh;
+  @include m.flex(flex, column, space-between, flex-start);
+}
+
+
+
+.titulo {
+  width: 95%;
+  height: 80vh;
+  margin: 0 auto;
+  @include m.grid(1, 1fr);
+  z-index: 1;
+  @include m.tablet {
+    @include m.grid(2, 1fr);
+    height: 100vh;
+  }
+
+  &__titulost,
+  &__imagent {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  &__h1c {
+    display: block;
+    width: 100%;
+    font-size: clamp(3rem, 4vw, 5rem);
+    color: v.$crema;
+    font-weight: 900;
+    
+    line-height: 0.9;
+    text-transform: uppercase;
+    z-index: 99;
+    margin-top: 15rem;
+
+    animation-name: titulo;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+    animation-direction: normal;
+
+    @include m.tablet {
+      text-align: start;
+    }
+  }
+
+  @keyframes titulo {
+    from {
+      opacity: (0);
+      transform: scale(0);
+    }
+    to {
+      opacity: (1);
+      transform: scale(1);
+    }
+  }
+
+  &__spanc {
+    width: 100%;
+    font-size: clamp(4rem, 4vw, 5rem);
+    color: v.$naranja;
+    font-weight: 900;
+    text-align: start;
+    line-height: 0.9;
+    text-transform: uppercase;
+  }
+
+  &__pngt {
+    margin: 0 auto;
+    width: 50%;
+    animation-name: rotacion;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: reverse;
+
+    @include m.tablet {
+      width: 40%;
+    }
+  }
+
+  @keyframes rotacion {
+    from {
+      transform: rotatey(0deg);
+    }
+    to {
+      transform: rotatey(360deg);
+    }
+  }
+}
